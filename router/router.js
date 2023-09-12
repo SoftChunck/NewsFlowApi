@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const {getUser} = require("../controller/userController");
 const { changePassword, create_user_profile, User_Sign_in, sendOTP, VarifyOTP, sendOTPForgot, forgotPassword, VarifyForgotOTP } = require("../controller/User_ProfileController");
 const { politics, stage_articles, entertainment, artandfashions } = require("../controller/NewsShow_Control");
-const { articleCategories, articleDetails, groupingArticle } = require("../controller/Articles_Controller");
+const { articleCategories, articleDetails, groupingArticle, sendEmailToAll } = require("../controller/Articles_Controller");
 const router = express.Router();
 router.use(bodyParser.urlencoded({extended:false}));
 router.use(bodyParser.json());
@@ -31,6 +31,9 @@ router.route("/artandfashion").get(artandfashions)
 router.route("/articalCategories").post(articleCategories)
 router.route("/articalDetails").post(articleDetails)
 router.route("/groupingArticle").post(groupingArticle)
+
+//Send Email
+router.route("/sendEmailToAll").post(sendEmailToAll)
 
 
 
